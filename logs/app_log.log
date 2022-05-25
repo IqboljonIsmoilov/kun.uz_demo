@@ -1,0 +1,4 @@
+18 мая 2022 - 05:01:19.514 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h1m32s533ms673µs785ns).
+18 мая 2022 - 06:26:55.442 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+18 мая 2022 - 06:26:55.446 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
+18 мая 2022 - 06:26:55.466 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.

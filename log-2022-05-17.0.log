@@ -1,0 +1,9 @@
+17 мая 2022 - 04:06:05.723 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h29s836ms951µs187ns).
+17 мая 2022 - 08:09:44.762 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h3m44s447ms835µs707ns).
+17 мая 2022 - 09:03:30.128 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=35m15s23ms425µs489ns).
+17 мая 2022 - 12:38:43.782 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m15s37ms25µs192ns).
+17 мая 2022 - 14:06:40.460 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h10m56s413ms877µs604ns).
+17 мая 2022 - 16:37:45.899 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m33s210ms707µs812ns).
+17 мая 2022 - 17:02:23.580 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m37s368ms432µs737ns).
+17 мая 2022 - 21:11:54.099 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h28s911ms990µs832ns).
+17 мая 2022 - 21:40:51.580 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m3s37ms486µs218ns).

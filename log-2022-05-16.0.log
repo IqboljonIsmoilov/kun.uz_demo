@@ -1,0 +1,195 @@
+16 мая 2022 - 11:15:54.624 - com.company.Application -  INFO  - Starting Application using Java 18 on Acer with PID 11976 (D:\Bootcamp kurs\Java\98 dars\kun.uz_site\target\classes started by IQBOLJON in D:\Bootcamp kurs\Java\98 dars\kun.uz_site)
+16 мая 2022 - 11:15:54.641 - com.company.Application -  DEBUG - Running with Spring Boot v2.6.7, Spring v5.3.19
+16 мая 2022 - 11:15:54.643 - com.company.Application -  INFO  - The following 1 profile is active: "dev"
+16 мая 2022 - 11:15:57.254 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16 мая 2022 - 11:15:57.388 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 120 ms. Found 10 JPA repository interfaces.
+16 мая 2022 - 11:15:58.682 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+16 мая 2022 - 11:15:58.700 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+16 мая 2022 - 11:15:58.700 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.62]
+16 мая 2022 - 11:15:58.955 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+16 мая 2022 - 11:15:58.956 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 3896 ms
+16 мая 2022 - 11:15:59.074 - com.company.config.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+16 мая 2022 - 11:15:59.343 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+16 мая 2022 - 11:15:59.463 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.8.Final
+16 мая 2022 - 11:15:59.805 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16 мая 2022 - 11:16:00.029 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+16 мая 2022 - 11:16:00.377 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+16 мая 2022 - 11:16:00.436 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16 мая 2022 - 11:16:00.539 - Hibernate Types -  INFO  - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+16 мая 2022 - 11:16:02.507 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16 мая 2022 - 11:16:02.525 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:16:04.173 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16 мая 2022 - 11:16:04.946 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+16 мая 2022 - 11:16:05.894 - com.company.Application -  INFO  - Started Application in 14.442 seconds (JVM running for 15.8)
+16 мая 2022 - 11:19:45.382 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:19:45.392 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
+16 мая 2022 - 11:19:45.403 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.
+16 мая 2022 - 11:19:55.456 - com.company.Application -  INFO  - Starting Application using Java 18 on Acer with PID 12040 (D:\Bootcamp kurs\Java\98 dars\kun.uz_site\target\classes started by IQBOLJON in D:\Bootcamp kurs\Java\98 dars\kun.uz_site)
+16 мая 2022 - 11:19:55.460 - com.company.Application -  DEBUG - Running with Spring Boot v2.6.7, Spring v5.3.19
+16 мая 2022 - 11:19:55.462 - com.company.Application -  INFO  - The following 1 profile is active: "dev"
+16 мая 2022 - 11:19:58.585 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16 мая 2022 - 11:19:58.758 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 158 ms. Found 10 JPA repository interfaces.
+16 мая 2022 - 11:20:00.272 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+16 мая 2022 - 11:20:00.291 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+16 мая 2022 - 11:20:00.291 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.62]
+16 мая 2022 - 11:20:00.506 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+16 мая 2022 - 11:20:00.507 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 4951 ms
+16 мая 2022 - 11:20:00.610 - com.company.config.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+16 мая 2022 - 11:20:00.823 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+16 мая 2022 - 11:20:00.928 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.8.Final
+16 мая 2022 - 11:20:01.333 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16 мая 2022 - 11:20:01.592 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+16 мая 2022 - 11:20:01.959 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+16 мая 2022 - 11:20:02.126 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16 мая 2022 - 11:20:02.549 - Hibernate Types -  INFO  - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+16 мая 2022 - 11:20:04.803 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16 мая 2022 - 11:20:04.816 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:20:08.252 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16 мая 2022 - 11:20:09.701 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+16 мая 2022 - 11:20:11.052 - com.company.Application -  INFO  - Started Application in 16.592 seconds (JVM running for 17.512)
+16 мая 2022 - 11:20:50.237 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16 мая 2022 - 11:20:50.238 - o.s.web.servlet.DispatcherServlet -  INFO  - Initializing Servlet 'dispatcherServlet'
+16 мая 2022 - 11:20:50.240 - o.s.web.servlet.DispatcherServlet -  INFO  - Completed initialization in 2 ms
+16 мая 2022 - 11:32:08.183 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:32:08.188 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
+16 мая 2022 - 11:32:08.209 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.
+16 мая 2022 - 11:32:15.924 - com.company.Application -  INFO  - Starting Application using Java 18 on Acer with PID 4260 (D:\Bootcamp kurs\Java\98 dars\kun.uz_site\target\classes started by IQBOLJON in D:\Bootcamp kurs\Java\98 dars\kun.uz_site)
+16 мая 2022 - 11:32:15.928 - com.company.Application -  DEBUG - Running with Spring Boot v2.6.7, Spring v5.3.19
+16 мая 2022 - 11:32:15.929 - com.company.Application -  INFO  - The following 1 profile is active: "dev"
+16 мая 2022 - 11:32:17.791 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16 мая 2022 - 11:32:17.926 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 120 ms. Found 10 JPA repository interfaces.
+16 мая 2022 - 11:32:19.101 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+16 мая 2022 - 11:32:19.120 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+16 мая 2022 - 11:32:19.120 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.62]
+16 мая 2022 - 11:32:19.327 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+16 мая 2022 - 11:32:19.328 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 3301 ms
+16 мая 2022 - 11:32:19.438 - com.company.config.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+16 мая 2022 - 11:32:19.630 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+16 мая 2022 - 11:32:19.720 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.8.Final
+16 мая 2022 - 11:32:19.945 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16 мая 2022 - 11:32:20.114 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+16 мая 2022 - 11:32:20.368 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+16 мая 2022 - 11:32:20.411 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16 мая 2022 - 11:32:20.467 - Hibernate Types -  INFO  - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+16 мая 2022 - 11:32:22.151 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16 мая 2022 - 11:32:22.165 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:32:23.708 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16 мая 2022 - 11:32:24.339 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+16 мая 2022 - 11:32:25.135 - com.company.Application -  INFO  - Started Application in 9.919 seconds (JVM running for 10.717)
+16 мая 2022 - 11:41:18.314 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16 мая 2022 - 11:41:18.315 - o.s.web.servlet.DispatcherServlet -  INFO  - Initializing Servlet 'dispatcherServlet'
+16 мая 2022 - 11:41:18.320 - o.s.web.servlet.DispatcherServlet -  INFO  - Completed initialization in 5 ms
+16 мая 2022 - 11:43:08.415 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:43:08.418 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
+16 мая 2022 - 11:43:08.427 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.
+16 мая 2022 - 11:43:13.127 - com.company.Application -  INFO  - Starting Application using Java 18 on Acer with PID 4284 (D:\Bootcamp kurs\Java\98 dars\kun.uz_site\target\classes started by IQBOLJON in D:\Bootcamp kurs\Java\98 dars\kun.uz_site)
+16 мая 2022 - 11:43:13.131 - com.company.Application -  DEBUG - Running with Spring Boot v2.6.7, Spring v5.3.19
+16 мая 2022 - 11:43:13.133 - com.company.Application -  INFO  - The following 1 profile is active: "dev"
+16 мая 2022 - 11:43:15.021 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16 мая 2022 - 11:43:15.148 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 112 ms. Found 10 JPA repository interfaces.
+16 мая 2022 - 11:43:16.291 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+16 мая 2022 - 11:43:16.307 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+16 мая 2022 - 11:43:16.307 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.62]
+16 мая 2022 - 11:43:16.487 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+16 мая 2022 - 11:43:16.488 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 3267 ms
+16 мая 2022 - 11:43:16.589 - com.company.config.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+16 мая 2022 - 11:43:16.754 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+16 мая 2022 - 11:43:16.825 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.8.Final
+16 мая 2022 - 11:43:17.055 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16 мая 2022 - 11:43:17.222 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+16 мая 2022 - 11:43:17.475 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+16 мая 2022 - 11:43:17.522 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16 мая 2022 - 11:43:17.570 - Hibernate Types -  INFO  - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+16 мая 2022 - 11:43:19.186 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16 мая 2022 - 11:43:19.195 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16 мая 2022 - 11:43:20.707 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16 мая 2022 - 11:43:21.302 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+16 мая 2022 - 11:43:22.130 - com.company.Application -  INFO  - Started Application in 9.693 seconds (JVM running for 10.426)
+16 мая 2022 - 12:28:23.329 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m35s745ms58µs978ns).
+16 мая 2022 - 12:45:27.227 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m33s888ms665µs780ns).
+16 мая 2022 - 14:05:23.133 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h1m25s877ms446µs723ns).
+16 мая 2022 - 21:03:58.738 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h54m3s539ms931µs431ns).
+16 мая 2022 - 21:44:02.008 - com.zaxxer.hikari.pool.HikariPool -  WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m32s836ms403µs317ns).
+16 мая 2022 - 22:50:03.615 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16 мая 2022 - 22:50:03.618 - o.s.web.servlet.DispatcherServlet -  INFO  - Initializing Servlet 'dispatcherServlet'
+16 мая 2022 - 22:50:03.675 - o.s.web.servlet.DispatcherServlet -  INFO  - Completed initialization in 57 ms
