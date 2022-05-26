@@ -14,6 +14,7 @@ public class BestTimeAndIdEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
+
     @Column(name = "created_Date")
     protected LocalDateTime createDate = LocalDateTime.now();
 }

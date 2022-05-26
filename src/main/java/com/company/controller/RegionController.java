@@ -25,7 +25,7 @@ public class RegionController {
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
-    @PostMapping("/adm/create")
+    @PostMapping("/adm")
     public ResponseEntity<?> created(@RequestBody @Valid RegionDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
@@ -53,7 +53,7 @@ public class RegionController {
 
 
     @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nickname")
-    @GetMapping("/public/id")
+    @GetMapping("/public")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
         return ResponseEntity.ok(regionService.getById(id));
@@ -72,7 +72,7 @@ public class RegionController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
-    @PutMapping("/adm/delete/{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

@@ -16,20 +16,19 @@ import com.company.exception.PasswordOrEmailWrongException;
 import com.company.repository.ProfileRepository;
 import com.company.util.JwtUtil;
 import io.jsonwebtoken.JwtException;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @Service
 public class AuthService {
-    @Autowired
-    private ProfileRepository profileRepository;
-    @Autowired
-    private EmailService emailService;
-    @Autowired
-    private AttachService attachService;
+
+    private final ProfileRepository profileRepository;
+    private final EmailService emailService;
+    private final AttachService attachService;
 
     public ProfileDTO login(AuthDTO dto) {
         String pswd = DigestUtils.md5Hex(dto.getPassword());
@@ -64,6 +63,7 @@ public class AuthService {
 
     public void registration(RegistrationDTO dto) {
         isValidFoRegistration(dto);
+
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {
             throw new EmailAlreadyExistsException("Email Already Exits");
@@ -112,17 +112,16 @@ public class AuthService {
         } catch (JwtException e) {
             throw new AppBadRequestException("Verification not completed");
         }
-
         profileRepository.updateStatus(ProfileStatus.ACTIVE, userId);
     }
 
     private void sendVerificationEmail(ProfileEntity entity) {
         StringBuilder builder = new StringBuilder();
         String jwt = JwtUtil.encode(entity.getId());
-        builder.append("Salom Hello \n");
+        builder.append("Hello \n");
         builder.append("To verify your registration click to next link.");
         builder.append("http://localhost:8080/auth/verification/").append(jwt);
-        builder.append("\nMazgi!");
+        builder.append("\nnothing!");
 
         emailService.send(entity.getEmail(), "Activate Your Registration", builder.toString());
     }

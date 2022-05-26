@@ -24,7 +24,7 @@ public class TagController {
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
-    @PostMapping("/adm/created")
+    @PostMapping("/adm")
     public ResponseEntity<?> created(@RequestBody @Valid TagDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
@@ -52,7 +52,7 @@ public class TagController {
 
 
     @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nickname")
-    @GetMapping("/public/id")
+    @GetMapping("/public")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
         return ResponseEntity.ok(tagService.getById(id));
@@ -71,7 +71,7 @@ public class TagController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
-    @PutMapping("/adm/delete/{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

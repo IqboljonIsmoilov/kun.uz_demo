@@ -10,16 +10,12 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CommentDTO {
-
-    private Integer id;
+public class CommentDTO extends BestTimeAndIdDTO {
 
     @Size(min = 10, max = 100, message = "few or lot")
     private String content;
-
     private Integer profileId;
     private Integer articleId;
-    private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
 }

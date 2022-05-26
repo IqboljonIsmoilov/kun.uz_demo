@@ -18,9 +18,8 @@ public interface LikeRepository extends JpaRepository<LikeEntity, Integer> {
     Optional<LikeEntity> findByArticleIdAndProfileId(Integer articleId, Integer profileId);
 
     @Query(value = "select sum( case  when status = 'LIKE' THEN 1 else 0 END ) like_count," +
-            "sum( case  when status = 'LIKE' THEN 0 else 1 END ) dislike_count" +
-            "from like_table", nativeQuery = true)
-
+            "sum( case  when status = 'LIKE' THEN 0 else 1 END ) dislike_count" + "from like_table",
+            nativeQuery = true)
     LikeSimpleMapper countArticleLikeDisLike(Integer articleId);
 
 }

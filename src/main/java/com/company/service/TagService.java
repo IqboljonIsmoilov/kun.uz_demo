@@ -5,7 +5,7 @@ import com.company.entity.TagEntity;
 import com.company.enums.LangEnum;
 import com.company.exception.IdNotFoundException;
 import com.company.repository.TagRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class TagService {
-    @Autowired
-    private TagRepository tagRepository;
+
+    private final TagRepository tagRepository;
 
     public TagDTO created(TagDTO dto, Integer pid) {
-        //  TagValidation.toValidation(dto);
 
         TagEntity entity = new TagEntity();
         entity.setNameRu(dto.getNameRu());
@@ -35,12 +35,14 @@ public class TagService {
     }
 
     public TagDTO getById(Integer id) {
-        TagEntity entity = tagRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        TagEntity entity = tagRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
 
     public TagEntity get(Integer id) {
-        TagEntity entity = tagRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        TagEntity entity = tagRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 
@@ -69,8 +71,8 @@ public class TagService {
 
     public String update(TagDTO dto, Integer id) {
 
-        Integer ubd = tagRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (ubd > 0) {
+        Integer n = tagRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
+        if (n > 0) {
             return "Update";
         }
         return "not update";

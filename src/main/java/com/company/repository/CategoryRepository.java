@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Integer> {
     @Transactional
     @Modifying
-    @Query("update CategoryEntity set nameEn = :nameEn,nameRu=:nameRn,nameUz=:nameUz,key=:key  where id = :id")
+    @Query("update CategoryEntity set nameEn = :nameEn, nameRu=:nameRn, nameUz=:nameUz, key=:key  where id = :id")
     Integer update(@Param("nameRn") String nameRu,
                    @Param("nameUz") String nameUz,
                    @Param("nameEn") String nameEn,

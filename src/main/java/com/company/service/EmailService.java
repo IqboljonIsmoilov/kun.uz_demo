@@ -5,7 +5,7 @@ import com.company.entity.EmailEntity;
 import com.company.enums.EmailType;
 import com.company.exception.ItemNotFoundException;
 import com.company.repository.EmailRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,15 +16,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class EmailService {
-    @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    private EmailRepository emailRepository;
+
+    private final JavaMailSender javaMailSender;
+    private final EmailRepository emailRepository;
 
     public void send(String toEmail, String title, String content) {
-        SimpleMailMessage simple = new SimpleMailMessage();   //###################
+        SimpleMailMessage simple = new SimpleMailMessage();
         simple.setTo(toEmail);
         simple.setSubject(title);
         simple.setText(content);

@@ -7,7 +7,7 @@ import com.company.exception.AppForbiddenException;
 import com.company.exception.ItemNotFoundException;
 import com.company.mapper.LikeSimpleMapper;
 import com.company.repository.LikeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -16,17 +16,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @Service
 public class LikeService {
-    @Autowired
-    private LikeRepository likeRepository;
-    @Autowired
+
+    private final LikeRepository likeRepository;
     @Lazy
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
     public LikeDTO create(LikeDTO dto, Integer pId) {
 
-        Optional<LikeEntity> oldLikeOptional = likeRepository.findByArticleIdAndProfileId(dto.getArticleId(), pId); // ######################
+        var oldLikeOptional = likeRepository.findByArticleIdAndProfileId(dto.getArticleId(), pId);
+
         if (oldLikeOptional.isPresent()) {
             oldLikeOptional.get().setStatus(dto.getStatus());
             likeRepository.save(oldLikeOptional.get());
@@ -66,21 +67,19 @@ public class LikeService {
     }
 
     public PageImpl<LikeDTO> listByArticleId(Integer articleId, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size,          //###################################
-                Sort.by(Sort.Direction.DESC, "createdDate"));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
-        Page<LikeEntity> pageList = likeRepository.findAllByArticleId(articleId, pageable);  //###################
+        Page<LikeEntity> pageList = likeRepository.findAllByArticleId(articleId, pageable);
 
         List<LikeDTO> likeDTOList = new LinkedList<>();
         for (LikeEntity entity : pageList.getContent()) {
             likeDTOList.add(toDTO(entity));
         }
-        return new PageImpl<LikeDTO>(likeDTOList, pageable, pageList.getTotalElements());  //#######################
+        return new PageImpl<LikeDTO>(likeDTOList, pageable, pageList.getTotalElements());
     }
 
     public PageImpl<LikeDTO> listByProfileId(Integer profileId, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size,
-                Sort.by(Sort.Direction.DESC, "createdDate"));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
         Page<LikeEntity> pageList = likeRepository.findAllByProfileId(profileId, pageable);
 

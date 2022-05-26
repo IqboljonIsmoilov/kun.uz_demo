@@ -7,19 +7,19 @@ import com.company.enums.ProfileRole;
 import com.company.exception.AppForbiddenException;
 import com.company.exception.ItemNotFoundException;
 import com.company.repository.CommentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class CommentService {
-    @Autowired
-    private CommentRepository commentRepository;
-    @Autowired
-    private ArticleService articleService;
+
+    private final CommentRepository commentRepository;
+    private final ArticleService articleService;
 
     public CommentDTO create(CommentDTO dto, Integer pId) {
         ArticleEntity articleEntity = articleService.get(dto.getArticleId());
@@ -105,7 +105,7 @@ public class CommentService {
         dto.setContent(entity.getContent());
         dto.setProfileId(entity.getProfileId());
         dto.setArticleId(entity.getArticleId());
-        dto.setCreatedDate(entity.getCreateDate());
+        dto.setCreateDate(entity.getCreateDate());
 
         return dto;
     }

@@ -23,9 +23,8 @@ public class ProfileService {
     private ProfileRepository profileRepository;
 
     public ProfileDTO created(ProfileDTO dto) {
-        //  ProfileValidation.toValidation(dto);
 
-        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
+        var optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {
             throw new EmailAlreadyExistsException("Email Already Exits");
         }
@@ -44,12 +43,14 @@ public class ProfileService {
     }
 
     public ProfileDTO getById(Integer id) {
-        ProfileEntity entity = profileRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        ProfileEntity entity = profileRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
 
     public ProfileEntity get(Integer id) {
-        ProfileEntity entity = profileRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        ProfileEntity entity = profileRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 
@@ -61,7 +62,7 @@ public class ProfileService {
 
     public List<ProfileDTO> getAll(Integer page, Integer size) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
-        Pageable pageable = PageRequest.of(page, size, sort);           // ############################
+        Pageable pageable = PageRequest.of(page, size, sort);
         List<ProfileDTO> dtoList = new LinkedList<>();
         profileRepository.findAll(pageable).stream().forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
@@ -72,8 +73,8 @@ public class ProfileService {
         if (optional.isPresent()) {
             throw new EmailAlreadyExistsException("Email Already Exits");
         }
-        Integer ubd = profileRepository.update(dto.getSurname(), dto.getName(), dto.getEmail(), dto.getPassword(), id);
-        if (ubd > 0) {
+        Integer n = profileRepository.update(dto.getSurname(), dto.getName(), dto.getEmail(), dto.getPassword(), id);
+        if (n > 0) {
             return "Update";
         }
         return "not update";

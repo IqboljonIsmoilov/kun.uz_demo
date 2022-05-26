@@ -24,7 +24,7 @@ public class LikeController {
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
-    @PostMapping("/create")
+    @PostMapping("/")
     public ResponseEntity<?> create(@RequestBody @Valid LikeDTO dto,
                                     HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request);

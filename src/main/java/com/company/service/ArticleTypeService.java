@@ -5,7 +5,7 @@ import com.company.entity.ArticleTypeEntity;
 import com.company.enums.LangEnum;
 import com.company.exception.IdNotFoundException;
 import com.company.repository.ArticleTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class ArticleTypeService {
-    @Autowired
-    private ArticleTypeRepository articleTypeRepository;
+
+    private final ArticleTypeRepository articleTypeRepository;
 
     public ArticleTypeDTO created(ArticleTypeDTO dto, Integer pid) {
-       // ArticleTypeValidation.toValidation(dto);
 
         ArticleTypeEntity entity = new ArticleTypeEntity();
         entity.setNameRu(dto.getNameRu());
@@ -35,23 +35,27 @@ public class ArticleTypeService {
     }
 
     public ArticleTypeDTO getById(Integer id) {
-        ArticleTypeEntity entity = articleTypeRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        ArticleTypeEntity entity = articleTypeRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
 
     public ArticleTypeDTO getById(Integer id, LangEnum lang) {
-        ArticleTypeEntity entity = articleTypeRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        ArticleTypeEntity entity = articleTypeRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity, lang);
     }
 
     public ArticleTypeEntity get(Integer id) {
-        ArticleTypeEntity entity = articleTypeRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        ArticleTypeEntity entity = articleTypeRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 
     public List<ArticleTypeDTO> getAll() {
         List<ArticleTypeDTO> dtoList = new LinkedList<>();
-        articleTypeRepository.findAll().stream().forEach(entity -> dtoList.add(toDTO(entity)));
+        articleTypeRepository.findAll().stream()
+                .forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
     }
 
@@ -59,7 +63,8 @@ public class ArticleTypeService {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(page, size, sort);
         List<ArticleTypeDTO> dtoList = new LinkedList<>();
-        articleTypeRepository.findAll(pageable).stream().forEach(entity -> dtoList.add(toDTO(entity, lang)));
+        articleTypeRepository.findAll(pageable).stream()
+                .forEach(entity -> dtoList.add(toDTO(entity, lang)));
         return dtoList;
     }
 

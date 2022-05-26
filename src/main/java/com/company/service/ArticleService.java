@@ -9,7 +9,7 @@ import com.company.exception.ItemAlreadyExistsException;
 import com.company.exception.ItemNotFoundException;
 import com.company.mapper.ArticleSimpleMapper;
 import com.company.repository.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -20,33 +20,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+
+@RequiredArgsConstructor
 @Service
 public class ArticleService {
 
-    @Autowired
-    private ArticleRepository articleRepository;
-    @Autowired
-    private ProfileService profileService;
-    @Autowired
-    private AttachService attachService;
-    @Autowired
-    private LikeService likeService;
-    @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private RegionService regionService;
-    @Autowired
-    private ArticleTypeService articleTypeService;
-    @Autowired
-    private TagService tagService;
+    private final ArticleRepository articleRepository;
+    private final ProfileService profileService;
+    private final AttachService attachService;
+    private final LikeService likeService;
+    private final CategoryService categoryService;
+    private final RegionService regionService;
+    private final ArticleTypeService articleTypeService;
+    private final TagService tagService;
 
     public ArticleDTO create(ArticleDTO dto, Integer pId) {
-        // ArticleValidation.isValid(dto);
 
-        Optional<ArticleEntity> optional = articleRepository.findByTitle(dto.getTitle());
-        if (optional.isPresent()) {
+        var optional = articleRepository.findByTitle(dto.getTitle());
+        if (optional.isPresent())
             throw new ItemAlreadyExistsException("This Article already used!");
-        }
 
         ArticleEntity entity = new ArticleEntity();
         entity.setTitle(dto.getTitle());
@@ -100,8 +92,6 @@ public class ArticleService {
     public ArticleDTO update(Integer id, ArticleDTO dto, Integer pId) {
         ProfileEntity profileEntity = profileService.get(pId);
 
-        //  ArticleValidation.isValid(dto);
-
         ArticleEntity entity = articleRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Not Found!"));
 
@@ -129,7 +119,8 @@ public class ArticleService {
 
         List<ArticleDTO> dtoList = new LinkedList<>();
         entityList.forEach(entity -> {
-            ArticleDTO dto = new ArticleDTO();
+            var dto = new ArticleDTO();
+
             dto.setId(entity.getId());
             dto.setTitle(entity.getTitle());
             dto.setDescription(entity.getDescription());
@@ -142,7 +133,7 @@ public class ArticleService {
     }
 
     public ArticleDTO getPublic(Integer id, LangEnum lang) {
-        Optional<ArticleEntity> optional = articleRepository.findByIdAndStatus(id, ArticleStatus.PUBLISHED);
+        var optional = articleRepository.findByIdAndStatus(id, ArticleStatus.PUBLISHED);
         return toFulDTO(optional.get(), lang);
     }
 

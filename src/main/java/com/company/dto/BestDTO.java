@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BestDTO extends BestTimeAndIdDTO {
 
-    private Integer id;
     @NotNull
     private String nameRu;
     @NotNull

@@ -24,7 +24,7 @@ public class ProfileController {
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
-    @PostMapping("/adm/create")
+    @PostMapping("/adm")
     public ResponseEntity<?> created(@RequestBody @Valid ProfileDTO dto,
                                      HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
@@ -79,7 +79,7 @@ public class ProfileController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
-    @DeleteMapping("/adm/delete/{id}")
+    @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

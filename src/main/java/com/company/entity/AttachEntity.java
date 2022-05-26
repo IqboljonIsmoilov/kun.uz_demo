@@ -25,6 +25,7 @@ public class AttachEntity {
     private String origenName;
     @Column
     private Long size;
+
     @Column(name = "created_Date")
-    private LocalDateTime createdDate = LocalDateTime.now();
+    protected LocalDateTime createDate = LocalDateTime.now();
 }

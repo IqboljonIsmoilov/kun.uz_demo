@@ -31,9 +31,7 @@ public class JwtUtil {
         if (role != null) {
             jwtBuilder.claim("role", role);
         }
-
         String jwt = jwtBuilder.compact();
-
         return jwt;
     }
 

@@ -5,7 +5,7 @@ import com.company.entity.RegionEntity;
 import com.company.enums.LangEnum;
 import com.company.exception.IdNotFoundException;
 import com.company.repository.RegionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class RegionService {
-    @Autowired
-    private RegionRepository regionRepository;
+
+    private final RegionRepository regionRepository;
 
     public RegionDTO created(RegionDTO dto, Integer pid) {
-        // RegionValidation.toValidation(dto);
 
         RegionEntity entity = new RegionEntity();
         entity.setNameRu(dto.getNameRu());
@@ -35,18 +35,21 @@ public class RegionService {
     }
 
     public RegionDTO getById(Integer id) {
-        RegionEntity entity = regionRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        RegionEntity entity = regionRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
 
     }
 
     public RegionDTO getById(Integer id, LangEnum lang) {
-        RegionEntity entity = regionRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        RegionEntity entity = regionRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity, lang);
     }
 
     public RegionEntity get(Integer id) {
-        RegionEntity entity = regionRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        RegionEntity entity = regionRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 
@@ -66,8 +69,8 @@ public class RegionService {
 
     public String update(RegionDTO dto, Integer id) {
 
-        Integer ubd = regionRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (ubd > 0) {
+        Integer n = regionRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
+        if (n > 0) {
             return "Update";
         }
         return "not update";

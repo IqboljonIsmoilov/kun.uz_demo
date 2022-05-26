@@ -5,7 +5,7 @@ import com.company.entity.CategoryEntity;
 import com.company.enums.LangEnum;
 import com.company.exception.IdNotFoundException;
 import com.company.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -14,15 +14,15 @@ import org.springframework.stereotype.Service;
 import java.util.LinkedList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class CategoryService {
-    @Autowired
-    private CategoryRepository categoryRepository;
+
+    private final CategoryRepository categoryRepository;
 
     public CategoryDTO created(CategoryDTO dto, Integer pid) {
-        //  CategoryValidation.toValidation(dto);
-
         CategoryEntity entity = new CategoryEntity();
+
         entity.setNameRu(dto.getNameRu());
         entity.setNameEn(dto.getNameEn());
         entity.setNameUz(dto.getNameUz());
@@ -47,8 +47,8 @@ public class CategoryService {
     }
 
     public CategoryEntity get(Integer id) {
-        CategoryEntity entity = categoryRepository
-                .findById(id).orElseThrow(() -> new IdNotFoundException("Id not Found"));
+        CategoryEntity entity = categoryRepository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 

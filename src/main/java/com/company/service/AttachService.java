@@ -6,7 +6,7 @@ import com.company.exception.AppBadRequestException;
 import com.company.exception.DownloadNotFoundException;
 import com.company.exception.ItemNotFoundException;
 import com.company.repository.AttachRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -29,11 +29,12 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
+@RequiredArgsConstructor
 @Service
 public class AttachService {
 
-    @Autowired
-    private AttachRepository attachRepository;
+
+    private final AttachRepository attachRepository;
 
     @Value("${attach.upload.folder}")
     private String attachFolder;
@@ -51,7 +52,7 @@ public class AttachService {
         String extension = getExtension(file.getOriginalFilename());
         AttachEntity entity = saveAttach(key, pathFolder, extension, file);
         AttachDTO dto = toDTO(entity);
-        try {// uploads/2022/04/23/dasdasd-dasdasda-asdasda-asdasd.jpg
+        try {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(attachFolder + pathFolder + "/" + key + "." + extension);
             Files.write(path, bytes);
@@ -89,7 +90,7 @@ public class AttachService {
 
     }
 
-    public ResponseEntity<Resource> download(String key) { // images.png
+    public ResponseEntity<Resource> download(String key) {
         try {
             AttachEntity entity = get(key);
             String path = entity.getPath() + "/" + key + "." + entity.getExtension();
@@ -148,7 +149,7 @@ public class AttachService {
     public AttachDTO toDTO(AttachEntity entity) {
         AttachDTO dto = new AttachDTO();
         dto.setId(entity.getId());
-        dto.setCreatedDate(entity.getCreatedDate());
+        dto.setCreatedDate(entity.getCreateDate());
         dto.setOrigenName(entity.getOrigenName());
         dto.setPath(entity.getPath());
         dto.setUrl(domainName + "/attach/download/" + entity.getId());
