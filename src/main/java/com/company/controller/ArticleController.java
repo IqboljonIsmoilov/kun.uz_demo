@@ -6,9 +6,9 @@ import com.company.enums.ProfileRole;
 import com.company.service.ArticleService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +17,11 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/article")
+@RequiredArgsConstructor
 public class ArticleController {
 
-    @Autowired
-    private ArticleService articleService;
+
+    private final ArticleService articleService;
     private Logger log = LoggerFactory.getLogger(ArticleController.class);
 
 
@@ -87,7 +88,7 @@ public class ArticleController {
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
-    @DeleteMapping("/adm/delete/{id}")
+    @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

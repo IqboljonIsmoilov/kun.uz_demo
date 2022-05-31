@@ -5,6 +5,7 @@ import com.company.enums.ProfileRole;
 import com.company.service.AttachService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
@@ -15,11 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/attach")
 public class AttachController {
 
-    @Autowired
-    private AttachService attachService;
+
+    private final AttachService attachService;
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")

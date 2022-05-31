@@ -6,9 +6,9 @@ import com.company.enums.ProfileRole;
 import com.company.service.TagService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/tag")
 public class TagController {
-    @Autowired
-    private TagService tagService;
+
+    private final TagService tagService;
     private Logger log = LoggerFactory.getLogger(TagController.class);
 
 

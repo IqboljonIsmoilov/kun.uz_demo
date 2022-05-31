@@ -33,6 +33,7 @@ public class SwaggerConfig {
                 .apiInfo(apiDetails());
     }
 
+
     private ApiInfo apiDetails() {
         return new ApiInfo("My Super Project Name",
                 "Api documentation for project name.",

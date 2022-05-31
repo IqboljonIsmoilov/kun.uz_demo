@@ -6,9 +6,9 @@ import com.company.enums.ProfileRole;
 import com.company.service.ArticleTypeService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,13 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/articletype")
 public class ArticleTypeController {
 
-    @Autowired
-    private ArticleTypeService articleTypeService;
+    private final ArticleTypeService articleTypeService;
     private Logger log = LoggerFactory.getLogger(ArticleTypeController.class);
-
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
     @PostMapping("/adm")

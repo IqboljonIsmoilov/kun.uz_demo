@@ -6,6 +6,7 @@ import com.company.enums.ProfileRole;
 import com.company.service.RegionService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/region")
 public class RegionController {
 
-    @Autowired
-    private RegionService regionService;
+
+    private final RegionService regionService;
     private Logger log = LoggerFactory.getLogger(RegionController.class);
 
 

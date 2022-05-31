@@ -6,6 +6,7 @@ import com.company.enums.ProfileRole;
 import com.company.service.CategoryService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/category")
 public class CategoryController {
-    @Autowired
-    private CategoryService categoryService;
-    private Logger log = LoggerFactory.getLogger(CategoryController.class);
 
+    private final CategoryService categoryService;
+    private Logger log = LoggerFactory.getLogger(CategoryController.class);
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
     @PostMapping("/adm/create")

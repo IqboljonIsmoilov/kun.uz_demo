@@ -5,6 +5,7 @@ import com.company.enums.ProfileRole;
 import com.company.service.ProfileService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/profile")
 public class ProfileController {
 
-    @Autowired
-    private ProfileService profileService;
+
+    private final ProfileService profileService;
     private Logger log = LoggerFactory.getLogger(ProfileController.class);
 
 
