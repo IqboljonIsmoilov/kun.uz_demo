@@ -7,8 +7,7 @@ import com.company.service.ArticleTypeService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/articletype")
 public class ArticleTypeController {
 
     private final ArticleTypeService articleTypeService;
-    private Logger log = LoggerFactory.getLogger(ArticleTypeController.class);
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
     @PostMapping("/adm")
@@ -60,7 +59,7 @@ public class ArticleTypeController {
 
 
     @ApiOperation(value = "update", notes = "Mathod used for update", nickname = "nicname")
-    @PutMapping("/adm/update/{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
                                     @RequestBody @Valid ArticleTypeDTO dto,
                                     HttpServletRequest request) {
@@ -71,7 +70,7 @@ public class ArticleTypeController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
-    @PutMapping("/adm/delete/{id}")
+    @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

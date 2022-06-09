@@ -6,22 +6,20 @@ import com.company.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/auth")
 @Api(tags = "Auth")
 public class AuthController {
 
     private final AuthService authService;
-    private Logger log = LoggerFactory.getLogger(AuthController.class);
 
     @ApiOperation(value = "login", notes = "Mathod used for login and getting taken", nickname = "nicname")
     @PostMapping("/login")

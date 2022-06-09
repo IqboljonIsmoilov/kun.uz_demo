@@ -7,8 +7,7 @@ import com.company.service.TagService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/tag")
 public class TagController {
 
     private final TagService tagService;
-    private Logger log = LoggerFactory.getLogger(TagController.class);
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")

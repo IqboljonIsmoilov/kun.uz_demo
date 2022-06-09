@@ -7,9 +7,7 @@ import com.company.service.RegionService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/region")
 public class RegionController {
 
-
     private final RegionService regionService;
-    private Logger log = LoggerFactory.getLogger(RegionController.class);
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")

@@ -6,7 +6,7 @@ import com.company.service.AttachService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/attach")
 public class AttachController {
@@ -63,7 +64,7 @@ public class AttachController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
-    @DeleteMapping("/adm/delete/{key}")
+    @DeleteMapping("/adm/{key}")
     public ResponseEntity<?> delete(@PathVariable("key") String key,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);

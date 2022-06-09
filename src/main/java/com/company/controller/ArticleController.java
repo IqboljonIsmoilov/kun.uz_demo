@@ -7,8 +7,7 @@ import com.company.service.ArticleService;
 import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,13 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
+@Slf4j
 @RequestMapping("/article")
 @RequiredArgsConstructor
 public class ArticleController {
 
 
     private final ArticleService articleService;
-    private Logger log = LoggerFactory.getLogger(ArticleController.class);
 
 
     @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
@@ -30,7 +29,7 @@ public class ArticleController {
     public ResponseEntity<?> create(@RequestBody @Valid ArticleDTO dto,
                                     HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request, ProfileRole.MODERATOR);
-        log.info("create Article: {}", dto);
+        log.info("create Article: {}{}", dto, ArticleController.class);
         return ResponseEntity.ok(articleService.create(dto, pId));
     }
 
@@ -82,7 +81,7 @@ public class ArticleController {
                                     @RequestBody @Valid ArticleDTO dto,
                                     HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Article: {}", dto);
+        log.info("update Article: {}{}", dto, ArticleController.class);
         return ResponseEntity.ok(articleService.update(id, dto, pId));
     }
 
