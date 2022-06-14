@@ -50,7 +50,7 @@ public class CategoryController {
     }
 
 
-    @ApiOperation(value = "getById", notes = "Mathod used for getById")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for getById")
     @GetMapping("/public/id")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);

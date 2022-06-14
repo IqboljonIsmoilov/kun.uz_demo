@@ -66,6 +66,7 @@ public class LikeService {
         throw new AppForbiddenException("Not Access");
     }
 
+
     public PageImpl<LikeDTO> listByArticleId(Integer articleId, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
@@ -77,6 +78,7 @@ public class LikeService {
         }
         return new PageImpl<LikeDTO>(likeDTOList, pageable, pageList.getTotalElements());
     }
+
 
     public PageImpl<LikeDTO> listByProfileId(Integer profileId, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
@@ -90,6 +92,7 @@ public class LikeService {
         return new PageImpl<LikeDTO>(likeDTOList, pageable, pageList.getTotalElements());
     }
 
+
     public LikeDTO getByArticleIdCount(Integer id) {
         LikeSimpleMapper count = likeRepository.countArticleLikeDisLike(id);
         LikeDTO dto = new LikeDTO();
@@ -97,6 +100,7 @@ public class LikeService {
         dto.setDisLikeCount(count.getDislike_count());
         return dto;
     }
+
 
     public PageImpl<LikeDTO> list(int page, int size) {
         Pageable pageable = PageRequest.of(page, size,
@@ -111,11 +115,13 @@ public class LikeService {
         return new PageImpl<LikeDTO>(likeDTOList, pageable, pageList.getTotalElements());
     }
 
+
     public LikeEntity get(Integer likeId) {
         return likeRepository.findById(likeId).orElseThrow(() -> {
             throw new ItemNotFoundException("Like Not found");
         });
     }
+
 
     public LikeDTO getByArticleId(Integer articleId, Integer pId) {
         Optional<LikeEntity> optional = likeRepository
@@ -125,6 +131,7 @@ public class LikeService {
         }
         return new LikeDTO();
     }
+
 
     public LikeDTO toDTO(LikeEntity entity) {
         LikeDTO dto = new LikeDTO();

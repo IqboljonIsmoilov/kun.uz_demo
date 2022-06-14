@@ -34,11 +34,13 @@ public class CategoryService {
         return dto;
     }
 
+
     public CategoryDTO getById(Integer id) {
         CategoryEntity entity = categoryRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
+
 
     public CategoryDTO getById(Integer id, LangEnum lang) {
         CategoryEntity entity = categoryRepository.findById(id)
@@ -46,17 +48,20 @@ public class CategoryService {
         return toDTO(entity, lang);
     }
 
+
     public CategoryEntity get(Integer id) {
         CategoryEntity entity = categoryRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
 
+
     public List<CategoryDTO> getAll() {
         List<CategoryDTO> dtoList = new LinkedList<>();
         categoryRepository.findAll().stream().forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
     }
+
 
     public List<CategoryDTO> getAll(Integer page, Integer size, LangEnum lang) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
@@ -65,6 +70,7 @@ public class CategoryService {
         categoryRepository.findAll(pageable).stream().forEach(entity -> dtoList.add(toDTO(entity, lang)));
         return dtoList;
     }
+
 
     public String update(CategoryDTO dto, Integer id) {
 
@@ -75,10 +81,12 @@ public class CategoryService {
         return "not update";
     }
 
+
     public String delete(Integer id) {
         categoryRepository.deleteById(id);
         return "delete";
     }
+
 
     private CategoryDTO toDTO(CategoryEntity entity, LangEnum lang) {
         CategoryDTO dto = new CategoryDTO();
@@ -93,6 +101,7 @@ public class CategoryService {
         dto.setCreateDate(entity.getCreateDate());
         return dto;
     }
+
 
     private CategoryDTO toDTO(CategoryEntity entity) {
         CategoryDTO dto = new CategoryDTO();

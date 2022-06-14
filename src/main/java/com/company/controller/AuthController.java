@@ -32,9 +32,9 @@ public class AuthController {
 
     @ApiOperation(value = "registration", notes = "Mathod used for registration")
     @PostMapping("/registration")
-    public ResponseEntity<?> registration(@RequestBody @Valid RegistrationDTO dto) {
-        log.info("Registration: {}{}", dto, AuthController.class);
-        authService.registration(dto);
+    public ResponseEntity<?> registration(@RequestBody @Valid RegistrationDTO requestDTO) {
+        log.info("Registration: {}{}", requestDTO, AuthController.class);
+        authService.registration(requestDTO);
         return ResponseEntity.ok().build();
     }
 

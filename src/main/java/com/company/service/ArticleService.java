@@ -56,6 +56,7 @@ public class ArticleService {
         return toDTO(entity);
     }
 
+
     public List<ArticleDTO> list(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
@@ -66,6 +67,7 @@ public class ArticleService {
         });
         return dtoList;
     }
+
 
     public List<ArticleDTO> listRegionById(Integer id, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
@@ -78,6 +80,7 @@ public class ArticleService {
         return dtoList;
     }
 
+
     public List<ArticleDTO> listCategoryById(Integer id, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
@@ -88,6 +91,7 @@ public class ArticleService {
         });
         return dtoList;
     }
+
 
     public ArticleDTO update(Integer id, ArticleDTO dto, Integer pId) {
         ProfileEntity profileEntity = profileService.get(pId);
@@ -104,6 +108,7 @@ public class ArticleService {
         return toDTO(entity);
     }
 
+
     public Boolean delete(Integer id) {
         ArticleEntity entity = articleRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Not Found!"));
@@ -111,6 +116,7 @@ public class ArticleService {
         articleRepository.deleteById(id);
         return true;
     }
+
 
     public List<ArticleDTO> getArticleByType(Integer typeId) {
         Sort sort = Sort.by(Sort.Direction.DESC, "createdDate");
@@ -132,15 +138,18 @@ public class ArticleService {
         return dtoList;
     }
 
+
     public ArticleDTO getPublic(Integer id, LangEnum lang) {
         var optional = articleRepository.findByIdAndStatus(id, ArticleStatus.PUBLISHED);
         return toFulDTO(optional.get(), lang);
     }
 
+
     public ArticleDTO getAdmin(Integer id, LangEnum lang) {
         Optional<ArticleEntity> optional = articleRepository.findById(id);
         return toFulDTO(optional.get(), lang);
     }
+
 
     private ArticleDTO toFulDTO(ArticleEntity entity, LangEnum lang) {
         ArticleDTO dto = toDTO(entity);
@@ -166,11 +175,13 @@ public class ArticleService {
         return dto;
     }
 
+
     public ArticleEntity get(Integer articleId) {
         return articleRepository.findById(articleId).orElseThrow(() -> {
             throw new ItemNotFoundException("Article Not found");
         });
     }
+
 
     public String published(Integer id, Integer pId) {
         ArticleEntity entity = articleRepository.findById(id)
@@ -181,6 +192,7 @@ public class ArticleService {
         return "Success";
     }
 
+
     public String blocked(Integer id, Integer pId) {
         ArticleEntity entity = articleRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Not Found!"));
@@ -189,6 +201,7 @@ public class ArticleService {
         articleRepository.save(entity);
         return "Success";
     }
+
 
     private ArticleDTO toDTO(ArticleEntity entity) {
         ArticleDTO dto = new ArticleDTO();

@@ -59,9 +59,9 @@ public class AttachService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return dto;
     }
+
 
     public byte[] open(String key) {
         byte[] data;
@@ -77,6 +77,7 @@ public class AttachService {
         return new byte[0];
     }
 
+
     public Boolean delete(String key) {
         AttachEntity entity = get(key);
 
@@ -87,8 +88,8 @@ public class AttachService {
             attachRepository.deleteById(key);
             return true;
         } else throw new AppBadRequestException("Could not read the file!");
-
     }
+
 
     public ResponseEntity<Resource> download(String key) {
         try {
@@ -111,6 +112,7 @@ public class AttachService {
         }
     }
 
+
     public List<AttachDTO> paginationList(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
 
@@ -118,9 +120,9 @@ public class AttachService {
         attachRepository.findAll(pageable).stream().forEach(entity -> {
             dtoList.add(toDTO(entity));
         });
-
         return dtoList;
     }
+
 
     public AttachEntity get(String id) {
         return attachRepository.findById(id).orElseThrow(() -> {
@@ -128,11 +130,13 @@ public class AttachService {
         });
     }
 
+
     public AttachDTO getId(String id) {
         return toDTO(attachRepository.findById(id).orElseThrow(() -> {
             throw new ItemNotFoundException("Attach not found");
         }));
     }
+
 
     public AttachEntity saveAttach(String key, String pathFolder, String extension, MultipartFile file) {
         AttachEntity entity = new AttachEntity();
@@ -146,6 +150,7 @@ public class AttachService {
         return entity;
     }
 
+
     public AttachDTO toDTO(AttachEntity entity) {
         AttachDTO dto = new AttachDTO();
         dto.setId(entity.getId());
@@ -157,10 +162,12 @@ public class AttachService {
         return dto;
     }
 
+
     public String getExtension(String fileName) {
         int lastIndex = fileName.lastIndexOf(".");
         return fileName.substring(lastIndex + 1);
     }
+
 
     private String getYmDString() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -169,9 +176,11 @@ public class AttachService {
         return year + "/" + month + "/" + day;
     }
 
+
     public String toOpenURL(String id) {
         return domainName + "/attach/open_general/" + id;
     }
+
 
     public AttachDTO toOpenURLDTO(String id) {
         return new AttachDTO(domainName + "/attach/open_general/" + id);

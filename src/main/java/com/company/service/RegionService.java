@@ -67,6 +67,7 @@ public class RegionService {
         return dtoList;
     }
 
+
     public String update(RegionDTO dto, Integer id) {
 
         Integer n = regionRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
@@ -76,10 +77,12 @@ public class RegionService {
         return "not update";
     }
 
+
     public String delete(Integer id) {
         regionRepository.deleteById(id);
         return "delete";
     }
+
 
     private RegionDTO toDTO(RegionEntity entity, LangEnum lang) {
         RegionDTO dto = new RegionDTO();
@@ -94,6 +97,7 @@ public class RegionService {
         dto.setCreateDate(entity.getCreateDate());
         return dto;
     }
+
 
     private RegionDTO toDTO(RegionEntity entity) {
         RegionDTO dto = new RegionDTO();

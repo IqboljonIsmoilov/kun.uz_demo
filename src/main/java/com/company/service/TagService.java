@@ -34,17 +34,20 @@ public class TagService {
         return dto;
     }
 
+
     public TagDTO getById(Integer id) {
         TagEntity entity = tagRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
 
+
     public TagEntity get(Integer id) {
         TagEntity entity = tagRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
+
 
     public List<TagDTO> get(List<Integer> id, LangEnum lang) {
         List<TagEntity> entity = tagRepository.findAllById(id);
@@ -55,11 +58,13 @@ public class TagService {
         return dtoList;
     }
 
+
     public List<TagDTO> getAll() {
         List<TagDTO> dtoList = new LinkedList<>();
         tagRepository.findAll().stream().forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
     }
+
 
     public List<TagDTO> getAll(Integer page, Integer size, LangEnum lang) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
@@ -68,6 +73,7 @@ public class TagService {
         tagRepository.findAll(pageable).stream().forEach(entity -> dtoList.add(toDTO(entity, lang)));
         return dtoList;
     }
+
 
     public String update(TagDTO dto, Integer id) {
 
@@ -78,10 +84,12 @@ public class TagService {
         return "not update";
     }
 
+
     public String delete(Integer id) {
         tagRepository.deleteById(id);
         return "delete";
     }
+
 
     private TagDTO toDTO(TagEntity entity, LangEnum lang) {
         TagDTO dto = new TagDTO();
@@ -96,6 +104,7 @@ public class TagService {
         dto.setCreateDate(entity.getCreateDate());
         return dto;
     }
+
 
     private TagDTO toDTO(TagEntity entity) {
         TagDTO dto = new TagDTO();

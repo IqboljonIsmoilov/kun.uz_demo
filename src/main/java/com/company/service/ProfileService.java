@@ -42,11 +42,13 @@ public class ProfileService {
         return dto;
     }
 
+
     public ProfileDTO getById(Integer id) {
         ProfileEntity entity = profileRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
+
 
     public ProfileEntity get(Integer id) {
         ProfileEntity entity = profileRepository.findById(id)
@@ -54,11 +56,13 @@ public class ProfileService {
         return entity;
     }
 
+
     public List<ProfileDTO> getAll() {
         List<ProfileDTO> dtoList = new LinkedList<>();
         profileRepository.findAll().stream().forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
     }
+
 
     public List<ProfileDTO> getAll(Integer page, Integer size) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
@@ -67,6 +71,7 @@ public class ProfileService {
         profileRepository.findAll(pageable).stream().forEach(entity -> dtoList.add(toDTO(entity)));
         return dtoList;
     }
+
 
     public String update(ProfileDTO dto, Integer id) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
@@ -80,10 +85,12 @@ public class ProfileService {
         return "not update";
     }
 
+
     public String delete(Integer id) {
         profileRepository.deleteById(id);
         return "delete";
     }
+
 
     public ProfileDTO uploadImage(Integer pId, String att_Id) {
         ProfileEntity entity = profileRepository.uploadImage(pId, att_Id)

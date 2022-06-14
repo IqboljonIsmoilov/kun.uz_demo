@@ -61,6 +61,7 @@ public class AuthService {
         return profile;
     }
 
+
     public void registration(RegistrationDTO dto) {
         isValidFoRegistration(dto);
 
@@ -105,6 +106,7 @@ public class AuthService {
         }
     }
 
+
     public void verification(String jwt) {
         Integer userId = null;
         try {
@@ -114,6 +116,7 @@ public class AuthService {
         }
         profileRepository.updateStatus(ProfileStatus.ACTIVE, userId);
     }
+
 
     private void sendVerificationEmail(ProfileEntity entity) {
         StringBuilder builder = new StringBuilder();

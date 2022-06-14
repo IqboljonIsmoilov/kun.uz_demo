@@ -36,6 +36,7 @@ public class EmailService {
         emailRepository.save(entity);
     }
 
+
     public List<EmailDTO> paginationList(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "sendDate"));
 
@@ -46,12 +47,14 @@ public class EmailService {
         return dtoList;
     }
 
+
     public Boolean delete(Integer id) {
         emailRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Not found!"));
 
         emailRepository.deleteById(id);
         return true;
     }
+
 
     private EmailDTO toDTO(EmailEntity entity) {
         EmailDTO dto = new EmailDTO();

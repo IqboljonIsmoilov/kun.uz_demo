@@ -20,6 +20,7 @@ public class ArticleTypeService {
 
     private final ArticleTypeRepository articleTypeRepository;
 
+
     public ArticleTypeDTO created(ArticleTypeDTO dto, Integer pid) {
 
         ArticleTypeEntity entity = new ArticleTypeEntity();
@@ -34,11 +35,13 @@ public class ArticleTypeService {
         return dto;
     }
 
+
     public ArticleTypeDTO getById(Integer id) {
         ArticleTypeEntity entity = articleTypeRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return toDTO(entity);
     }
+
 
     public ArticleTypeDTO getById(Integer id, LangEnum lang) {
         ArticleTypeEntity entity = articleTypeRepository.findById(id)
@@ -46,11 +49,13 @@ public class ArticleTypeService {
         return toDTO(entity, lang);
     }
 
+
     public ArticleTypeEntity get(Integer id) {
         ArticleTypeEntity entity = articleTypeRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("Id not Found"));
         return entity;
     }
+
 
     public List<ArticleTypeDTO> getAll() {
         List<ArticleTypeDTO> dtoList = new LinkedList<>();
@@ -59,28 +64,30 @@ public class ArticleTypeService {
         return dtoList;
     }
 
+
     public List<ArticleTypeDTO> getAll(Integer page, Integer size, LangEnum lang) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(page, size, sort);
         List<ArticleTypeDTO> dtoList = new LinkedList<>();
+
         articleTypeRepository.findAll(pageable).stream()
                 .forEach(entity -> dtoList.add(toDTO(entity, lang)));
         return dtoList;
     }
 
-    public String update(ArticleTypeDTO dto, Integer id) {
 
-        Integer ubd = articleTypeRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (ubd > 0) {
-            return "Update";
-        }
-        return "not update";
+    public Boolean update(ArticleTypeDTO dto, Integer id) {
+
+        Integer n = articleTypeRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
+        return n > 0;
     }
+
 
     public String delete(Integer id) {
         articleTypeRepository.deleteById(id);
         return "delete";
     }
+
 
     private ArticleTypeDTO toDTO(ArticleTypeEntity entity, LangEnum lang) {
         ArticleTypeDTO dto = new ArticleTypeDTO();
@@ -96,6 +103,7 @@ public class ArticleTypeService {
 
         return dto;
     }
+
 
     private ArticleTypeDTO toDTO(ArticleTypeEntity entity) {
         ArticleTypeDTO dto = new ArticleTypeDTO();

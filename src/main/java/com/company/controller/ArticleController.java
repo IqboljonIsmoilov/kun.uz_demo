@@ -42,7 +42,7 @@ public class ArticleController {
     }
 
 
-    @ApiOperation(value = "regionId", notes = "Mathod used for regionId")
+    @ApiOperation(value = "region Id", notes = "Mathod used for region Id")
     @GetMapping("/public/region/{id}")
     public ResponseEntity<?> listByRegion(@PathVariable("id") Integer regionId,
                                           @RequestParam(value = "page", defaultValue = "0") int page,
@@ -51,7 +51,7 @@ public class ArticleController {
     }
 
 
-    @ApiOperation(value = "categoryId", notes = "Mathod used for categoryId")
+    @ApiOperation(value = "category Id", notes = "Mathod used for category Id")
     @GetMapping("/public/category/{id}")
     public ResponseEntity<?> listByCategory(@PathVariable("id") Integer categoryId,
                                             @RequestParam(value = "page", defaultValue = "0") int page,
