@@ -23,24 +23,24 @@ public class TagController {
     private final TagService tagService;
 
 
-    @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
+    @ApiOperation(value = "create", notes = "Mathod used for create")
     @PostMapping("/adm")
-    public ResponseEntity<?> created(@RequestBody @Valid TagDTO dto,
+    public ResponseEntity<?> created(@RequestBody @Valid TagDTO requestDTO,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Tag: {}{}", dto, TagController.class);
-        return ResponseEntity.ok(tagService.created(dto, id));
+        log.info("created Tag: {}{}", requestDTO, TagController.class);
+        return ResponseEntity.ok(tagService.created(requestDTO, id));
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/public")
     public ResponseEntity<?> get() {
         return ResponseEntity.ok(tagService.getAll());
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/adm/{lang}")
     public ResponseEntity<?> get(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                  @RequestParam(value = "size", defaultValue = "5") Integer size,
@@ -51,7 +51,7 @@ public class TagController {
     }
 
 
-    @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nickname")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for get By Id")
     @GetMapping("/public")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
@@ -59,18 +59,18 @@ public class TagController {
     }
 
 
-    @ApiOperation(value = "update", notes = "Mathod used for update", nickname = "nickname")
+    @ApiOperation(value = "update", notes = "Mathod used for update")
     @PutMapping("/adm/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
-                                    @RequestBody @Valid TagDTO dto,
+                                    @RequestBody @Valid TagDTO updateDTO,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Tag: {}{}", dto, TagController.class);
-        return ResponseEntity.ok(tagService.update(dto, id));
+        log.info("update Tag: {}{}", updateDTO, TagController.class);
+        return ResponseEntity.ok(tagService.update(updateDTO, id));
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @PutMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {

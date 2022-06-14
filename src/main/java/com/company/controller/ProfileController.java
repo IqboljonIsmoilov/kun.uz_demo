@@ -23,24 +23,24 @@ public class ProfileController {
     private final ProfileService profileService;
 
 
-    @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
+    @ApiOperation(value = "create", notes = "Mathod used for create")
     @PostMapping("/adm")
-    public ResponseEntity<?> created(@RequestBody @Valid ProfileDTO dto,
+    public ResponseEntity<?> created(@RequestBody @Valid ProfileDTO requestDTO,
                                      HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Profile: {}{}", dto, ProfileController.class);
-        return ResponseEntity.ok(profileService.created(dto));
+        log.info("created Profile: {}{}", requestDTO, ProfileController.class);
+        return ResponseEntity.ok(profileService.created(requestDTO));
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/public")
     public ResponseEntity<?> get() {
         return ResponseEntity.ok(profileService.getAll());
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/adm")
     public ResponseEntity<?> get(@RequestBody Integer page,
                                  @RequestBody Integer size,
@@ -50,7 +50,7 @@ public class ProfileController {
     }
 
 
-    @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nickname")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for get By Id")
     @GetMapping("/public/id")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
@@ -58,18 +58,18 @@ public class ProfileController {
     }
 
 
-    @ApiOperation(value = "update", notes = "Mathod used for update", nickname = "nickname")
+    @ApiOperation(value = "update", notes = "Mathod used for update")
     @PutMapping("/adm/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
-                                    @RequestBody @Valid ProfileDTO dto,
+                                    @RequestBody @Valid ProfileDTO updateDTO,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Profile: {}{}", dto, ProfileController.class);
-        return ResponseEntity.ok(profileService.update(dto, id));
+        log.info("update Profile: {}{}", updateDTO, ProfileController.class);
+        return ResponseEntity.ok(profileService.update(updateDTO, id));
     }
 
 
-    @ApiOperation(value = "uploadImage", notes = "Mathod used for uploadImage", nickname = "nickname")
+    @ApiOperation(value = "uploadImage", notes = "Mathod used for uploadImage")
     @PutMapping("/public/image/{id}")
     public ResponseEntity<?> uploadImage(@PathVariable("id") String id,
                                          HttpServletRequest request) {
@@ -78,7 +78,7 @@ public class ProfileController {
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {

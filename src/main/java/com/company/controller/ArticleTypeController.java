@@ -22,24 +22,24 @@ public class ArticleTypeController {
 
     private final ArticleTypeService articleTypeService;
 
-    @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
+    @ApiOperation(value = "create", notes = "Mathod used for create")
     @PostMapping("/adm")
-    public ResponseEntity<?> created(@RequestBody @Valid ArticleTypeDTO dto,
+    public ResponseEntity<?> created(@RequestBody @Valid ArticleTypeDTO requestDTO,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created articletype: {}{}", dto, ArticleTypeController.class);
-        return ResponseEntity.ok(articleTypeService.created(dto, id));
+        log.info("created articletype: {}{}", requestDTO, ArticleTypeController.class);
+        return ResponseEntity.ok(articleTypeService.created(requestDTO, id));
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nicname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/public")
     public ResponseEntity<?> get() {
         return ResponseEntity.ok(articleTypeService.getAll());
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nicname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/adm/{lang}")
     public ResponseEntity<?> get(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                  @RequestParam(value = "size", defaultValue = "5") Integer size,
@@ -50,7 +50,7 @@ public class ArticleTypeController {
     }
 
 
-    @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nicname")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for getById")
     @GetMapping("/public/id")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
@@ -58,18 +58,18 @@ public class ArticleTypeController {
     }
 
 
-    @ApiOperation(value = "update", notes = "Mathod used for update", nickname = "nicname")
+    @ApiOperation(value = "update", notes = "Mathod used for update")
     @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
-                                    @RequestBody @Valid ArticleTypeDTO dto,
+                                    @RequestBody @Valid ArticleTypeDTO updateDTO,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update articletype: {}{}", dto, ArticleTypeController.class);
-        return ResponseEntity.ok(articleTypeService.update(dto, id));
+        log.info("update articletype: {}{}", updateDTO, ArticleTypeController.class);
+        return ResponseEntity.ok(articleTypeService.update(updateDTO, id));
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {

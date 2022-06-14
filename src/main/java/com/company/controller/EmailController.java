@@ -20,7 +20,7 @@ public class EmailController {
     private final EmailService emailService;
 
 
-    @ApiOperation(value = "list", notes = "Mathod used for list", nickname = "nicname")
+    @ApiOperation(value = "list", notes = "Mathod used for list")
     @GetMapping("/adm/list")
     public ResponseEntity<?> list(@RequestParam(value = "page", defaultValue = "0") int page,
                                   @RequestParam(value = "size", defaultValue = "5") int size,
@@ -30,7 +30,7 @@ public class EmailController {
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @DeleteMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {

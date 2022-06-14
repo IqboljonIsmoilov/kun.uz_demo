@@ -23,17 +23,17 @@ public class LikeController {
     private final LikeService likeService;
 
 
-    @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nicname")
+    @ApiOperation(value = "create", notes = "Mathod used for create")
     @PostMapping("/")
-    public ResponseEntity<?> create(@RequestBody @Valid LikeDTO dto,
+    public ResponseEntity<?> create(@RequestBody @Valid LikeDTO requestDTO,
                                     HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request);
-        log.info("create Like: {}{}", dto, LikeController.class);
-        return ResponseEntity.ok(likeService.create(dto, pId));
+        log.info("create Like: {}{}", requestDTO, LikeController.class);
+        return ResponseEntity.ok(likeService.create(requestDTO, pId));
     }
 
 
-    @ApiOperation(value = "findAllByArticleId", notes = "Mathod used for findAllByArticleId", nickname = "nicname")
+    @ApiOperation(value = "article Id", notes = "Mathod used for findAllByArticleId")
     @GetMapping("/article/{id}")
     public ResponseEntity<?> findAllByArticleId(@PathVariable("id") Integer articleId,
                                                 @RequestParam(value = "page", defaultValue = "0") int page,
@@ -42,7 +42,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "findAllByProfileId", notes = "Mathod used for findAllByProfileId", nickname = "nicname")
+    @ApiOperation(value = "profileId", notes = "Mathod used for findAllByProfileId")
     @GetMapping("/adm/profile/{id}")
     public ResponseEntity<?> findAllByProfileId(@PathVariable("id") Integer profileId,
                                                 @RequestParam(value = "page", defaultValue = "0") int page,
@@ -51,7 +51,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "findAll", notes = "Mathod used for findAll", nickname = "nicname")
+    @ApiOperation(value = "findAll", notes = "Mathod used for findAll")
     @GetMapping("/adm")
     public ResponseEntity<?> findAll(@RequestParam(value = "page", defaultValue = "0") int page,
                                      @RequestParam(value = "size", defaultValue = "3") int size) {
@@ -59,7 +59,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "findByProfile", notes = "Mathod used for findByProfile", nickname = "nicname")
+    @ApiOperation(value = "findByProfile", notes = "Mathod used for findByProfile")
     @GetMapping("/profile/{id}")
     public ResponseEntity<?> findByProfile(@PathVariable("id") Integer articleId,
                                            HttpServletRequest request) {
@@ -68,7 +68,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer commentId,
                                     HttpServletRequest request) {

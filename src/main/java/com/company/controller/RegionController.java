@@ -23,24 +23,24 @@ public class RegionController {
     private final RegionService regionService;
 
 
-    @ApiOperation(value = "create", notes = "Mathod used for create", nickname = "nickname")
+    @ApiOperation(value = "create", notes = "Mathod used for create")
     @PostMapping("/adm")
-    public ResponseEntity<?> created(@RequestBody @Valid RegionDTO dto,
+    public ResponseEntity<?> created(@RequestBody @Valid RegionDTO requestDTO,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Region: {}{}", dto, RegionController.class);
-        return ResponseEntity.ok(regionService.created(dto, id));
+        log.info("created Region: {}{}", requestDTO, RegionController.class);
+        return ResponseEntity.ok(regionService.created(requestDTO, id));
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/public")
     public ResponseEntity<?> get() {
         return ResponseEntity.ok(regionService.getAll());
     }
 
 
-    @ApiOperation(value = "get", notes = "Mathod used for get", nickname = "nickname")
+    @ApiOperation(value = "get", notes = "Mathod used for get")
     @GetMapping("/adm/{lang}")
     public ResponseEntity<?> get(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                  @RequestParam(value = "size", defaultValue = "5") Integer size,
@@ -51,7 +51,7 @@ public class RegionController {
     }
 
 
-    @ApiOperation(value = "get By Id", notes = "Mathod used for get By Id", nickname = "nickname")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for get By Id")
     @GetMapping("/public")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
@@ -59,18 +59,18 @@ public class RegionController {
     }
 
 
-    @ApiOperation(value = "update", notes = "Mathod used for update", nickname = "nickname")
-    @PutMapping("/adm/update/{id}")
+    @ApiOperation(value = "update", notes = "Mathod used for update")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
-                                    @RequestBody @Valid RegionDTO dto,
+                                    @RequestBody @Valid RegionDTO updateDTO,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Region: {}{}", dto, RegionController.class);
-        return ResponseEntity.ok(regionService.update(dto, id));
+        log.info("update Region: {}{}", updateDTO, RegionController.class);
+        return ResponseEntity.ok(regionService.update(updateDTO, id));
     }
 
 
-    @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nickname")
+    @ApiOperation(value = "delete", notes = "Mathod used for delete")
     @PutMapping("/adm/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                     HttpServletRequest request) {
