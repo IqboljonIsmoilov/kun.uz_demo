@@ -31,8 +31,9 @@ public class EmailController {
 
 
     @ApiOperation(value = "delete", notes = "Mathod used for delete", nickname = "nicname")
-    @DeleteMapping("/adm/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Integer id, HttpServletRequest request) {
+    @DeleteMapping("/adm/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id,
+                                    HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(emailService.delete(id));
     }

@@ -28,7 +28,7 @@ public class LikeController {
     public ResponseEntity<?> create(@RequestBody @Valid LikeDTO dto,
                                     HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request);
-        log.info("create Like: {}", dto);
+        log.info("create Like: {}{}", dto, LikeController.class);
         return ResponseEntity.ok(likeService.create(dto, pId));
     }
 
@@ -75,5 +75,4 @@ public class LikeController {
         ProfileJwtDTO jwtDTO = JwtUtil.getProfileFromHeader(request);
         return ResponseEntity.ok(likeService.delete(commentId, jwtDTO.getId(), jwtDTO.getRole()));
     }
-
 }

@@ -28,7 +28,7 @@ public class RegionController {
     public ResponseEntity<?> created(@RequestBody @Valid RegionDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Region: {}", dto);
+        log.info("created Region: {}{}", dto, RegionController.class);
         return ResponseEntity.ok(regionService.created(dto, id));
     }
 
@@ -51,7 +51,7 @@ public class RegionController {
     }
 
 
-    @ApiOperation(value = "getById", notes = "Mathod used for getById", nickname = "nickname")
+    @ApiOperation(value = "get By Id", notes = "Mathod used for get By Id", nickname = "nickname")
     @GetMapping("/public")
     public ResponseEntity<?> getById(HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request);
@@ -65,7 +65,7 @@ public class RegionController {
                                     @RequestBody @Valid RegionDTO dto,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Region: {}", dto);
+        log.info("update Region: {}{}", dto, RegionController.class);
         return ResponseEntity.ok(regionService.update(dto, id));
     }
 

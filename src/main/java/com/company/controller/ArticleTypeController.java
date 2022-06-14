@@ -27,7 +27,7 @@ public class ArticleTypeController {
     public ResponseEntity<?> created(@RequestBody @Valid ArticleTypeDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created articletype: {}", dto);
+        log.info("created articletype: {}{}", dto, ArticleTypeController.class);
         return ResponseEntity.ok(articleTypeService.created(dto, id));
     }
 
@@ -64,7 +64,7 @@ public class ArticleTypeController {
                                     @RequestBody @Valid ArticleTypeDTO dto,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update articletype: {}", dto);
+        log.info("update articletype: {}{}", dto, ArticleTypeController.class);
         return ResponseEntity.ok(articleTypeService.update(dto, id));
     }
 

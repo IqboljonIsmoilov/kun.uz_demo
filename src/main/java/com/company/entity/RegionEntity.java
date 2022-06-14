@@ -11,5 +11,4 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "category")
 public class RegionEntity extends BestEntity {
-
 }

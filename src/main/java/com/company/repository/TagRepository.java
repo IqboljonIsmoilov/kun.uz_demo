@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 public interface TagRepository extends JpaRepository<TagEntity, Integer> {
     @Transactional
     @Modifying
-    @Query("update TagEntity set nameEn = :nameEn,nameRu=:nameRn,nameUz=:nameUz,key=:key  where id = :id")
+    @Query("update TagEntity set nameEn = :nameEn, nameRu = :nameRn, nameUz = :nameUz, key = :key  where id = :id")
     Integer update(@Param("nameRn") String nameRu,
                    @Param("nameUz") String nameUz,
                    @Param("nameEn") String nameEn,

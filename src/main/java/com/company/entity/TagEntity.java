@@ -11,5 +11,4 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tag")
 public class TagEntity extends BestEntity {
-
 }

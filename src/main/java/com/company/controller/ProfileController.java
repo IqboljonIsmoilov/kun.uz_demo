@@ -28,7 +28,7 @@ public class ProfileController {
     public ResponseEntity<?> created(@RequestBody @Valid ProfileDTO dto,
                                      HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Profile: {}", dto);
+        log.info("created Profile: {}{}", dto, ProfileController.class);
         return ResponseEntity.ok(profileService.created(dto));
     }
 
@@ -64,7 +64,7 @@ public class ProfileController {
                                     @RequestBody @Valid ProfileDTO dto,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Profile: {}", dto);
+        log.info("update Profile: {}{}", dto, ProfileController.class);
         return ResponseEntity.ok(profileService.update(dto, id));
     }
 

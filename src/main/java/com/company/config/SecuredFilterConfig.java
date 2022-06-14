@@ -25,7 +25,6 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/comment/adm/*");
         bean.addUrlPatterns("/like/adm/*");
         bean.addUrlPatterns("/like/profile/*");
-
         return bean;
     }
 }

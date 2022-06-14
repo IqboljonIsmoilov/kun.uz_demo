@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 public interface ArticleTypeRepository extends JpaRepository<ArticleTypeEntity, Integer> {
     @Transactional
     @Modifying
-    @Query("update ArticleTypeEntity set nameEn = :nameEn,nameRu=:nameRn,nameUz=:nameUz,key=:key  where id = :id")
+    @Query("update ArticleTypeEntity set nameEn = :nameEn, nameRu = :nameRn, nameUz = :nameUz, key = :key where id = :id")
     Integer update(@Param("nameRn") String nameRu,
                    @Param("nameUz") String nameUz,
                    @Param("nameEn") String nameEn,

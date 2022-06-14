@@ -28,7 +28,7 @@ public class TagController {
     public ResponseEntity<?> created(@RequestBody @Valid TagDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Tag: {}", dto);
+        log.info("created Tag: {}{}", dto, TagController.class);
         return ResponseEntity.ok(tagService.created(dto, id));
     }
 
@@ -65,7 +65,7 @@ public class TagController {
                                     @RequestBody @Valid TagDTO dto,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Tag: {}", dto);
+        log.info("update Tag: {}{}", dto, TagController.class);
         return ResponseEntity.ok(tagService.update(dto, id));
     }
 

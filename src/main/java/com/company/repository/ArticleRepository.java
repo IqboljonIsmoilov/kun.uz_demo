@@ -16,15 +16,15 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer>
 
     Optional<ArticleEntity> findByTitle(String title);
 
-    @Query(value = "SELECT a.id,a.title,a.description,a.attach_id,a.published_date " +
-            " FROM article AS a  where  a.type_id =:typeId and status =:status order by created_date desc Limit 5",
-            nativeQuery = true)
+    @Query(value = "SELECT a.id,a.title,a.description,a.attach_id,a.published_date "
+            + " FROM article AS a  where a.type_id = :typeId " +
+            "and status = :status order by created_date desc Limit 5", nativeQuery = true)
     public List<ArticleSimpleMapper> getTypeId(@Param("typeId") Integer typeId,
                                                @Param("status") String status);
 
-    @Query(value = "SELECT a.id,a.title,a.description,a.attach_id,a.published_date " +
-            " FROM article AS a  where  a.id =:articleId and status =:status order by created_date desc Limit 5",
-            nativeQuery = true)
+    @Query(value = "SELECT a.id,a.title,a.description,a.attach_id,a.published_date "
+            + " FROM article AS a  where  a.id =:articleId " +
+            "and status = :status order by created_date desc Limit 5", nativeQuery = true)
     Optional<ArticleSimpleMapper> getArticleId(@Param("articleId") Integer articleId,
                                                @Param("status") String status);
 
@@ -33,5 +33,4 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer>
     Page<ArticleEntity> findByCategoryId(Pageable pageable, Integer id);
 
     Optional<ArticleEntity> findByIdAndStatus(Integer id, ArticleStatus status);
-
 }

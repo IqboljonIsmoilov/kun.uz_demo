@@ -80,5 +80,4 @@ public class ArticleEntity extends BestTimeAndIdEntity {
         this.attachId = attachId;
         this.publishedDate = publishedDate;
     }
-
 }

@@ -10,15 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 public class JwtUtil {
+
     private final static String secretKey = "kalitso'z";
+
 
     public static String encode(Integer id, ProfileRole role) {
         return doEncode(id, role, 60);
     }
 
+
     public static String encode(Integer id) {
         return doEncode(id, null, 30);
     }
+
 
     public static String doEncode(Integer id, ProfileRole role, long minute) {
         JwtBuilder jwtBuilder = Jwts.builder();
@@ -35,6 +39,7 @@ public class JwtUtil {
         return jwt;
     }
 
+
     public static ProfileJwtDTO decode(String jwt) {
         JwtParser jwtParser = Jwts.parser();
 
@@ -48,6 +53,7 @@ public class JwtUtil {
         return new ProfileJwtDTO(Integer.parseInt(id), ProfileRole.valueOf(role));
     }
 
+
     public static Integer decodeAndGetId(String jwt) {
         JwtParser jwtParser = Jwts.parser();
 
@@ -59,6 +65,7 @@ public class JwtUtil {
 
         return Integer.parseInt(id);
     }
+
 
     public static Integer getIdFromHeader(HttpServletRequest request, ProfileRole... requiredRoles) {
         try {
@@ -77,6 +84,7 @@ public class JwtUtil {
 
         throw new AppForbiddenException("Not Access2");
     }
+
 
     public static ProfileJwtDTO getProfileFromHeader(HttpServletRequest request, ProfileRole... requiredRoles) {
         try {

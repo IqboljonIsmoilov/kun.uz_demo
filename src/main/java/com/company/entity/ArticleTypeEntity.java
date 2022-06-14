@@ -11,5 +11,4 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "article_type")
 public class ArticleTypeEntity extends BestEntity {
-
 }

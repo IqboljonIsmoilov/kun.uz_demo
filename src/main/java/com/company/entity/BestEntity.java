@@ -19,7 +19,7 @@ public class BestEntity extends BestTimeAndIdEntity {
     @Column(name = "key", unique = true)
     private String key;
 
-    @Column(name = "profile_Id")
+    @Column(name = "profile_id")
     private Integer profileId;
 
     @ManyToOne(fetch = FetchType.LAZY)

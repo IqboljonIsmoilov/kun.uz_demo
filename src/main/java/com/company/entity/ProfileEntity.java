@@ -35,5 +35,4 @@ public class ProfileEntity extends BestTimeAndIdEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "attach_id", insertable = false, updatable = false)
     private AttachEntity image;
-
 }

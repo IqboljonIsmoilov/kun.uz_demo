@@ -21,20 +21,23 @@ public class AuthController {
 
     private final AuthService authService;
 
+
     @ApiOperation(value = "login", notes = "Mathod used for login and getting taken", nickname = "nicname")
     @PostMapping("/login")
     public ResponseEntity<?> create(@RequestBody @Valid AuthDTO dto) {
-        log.info("Authorization: {}", dto);
+        log.info("Authorization: {}{}", dto, AuthController.class);
         return ResponseEntity.ok(authService.login(dto));
     }
+
 
     @ApiOperation(value = "registration", notes = "Mathod used for registration", nickname = "nicname")
     @PostMapping("/registration")
     public ResponseEntity<?> registration(@RequestBody @Valid RegistrationDTO dto) {
-        log.info("Registration: {}", dto);
+        log.info("Registration: {}{}", dto, AuthController.class);
         authService.registration(dto);
         return ResponseEntity.ok().build();
     }
+
 
     @ApiOperation(value = "verification", notes = "Mathod used Email verification", nickname = "nicname")
     @GetMapping("/verification/{jwt}")
@@ -42,5 +45,4 @@ public class AuthController {
         authService.verification(jwt);
         return ResponseEntity.ok().build();
     }
-
 }

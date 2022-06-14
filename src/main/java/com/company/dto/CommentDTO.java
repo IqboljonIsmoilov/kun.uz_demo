@@ -17,5 +17,4 @@ public class CommentDTO extends BestTimeAndIdDTO {
     private Integer profileId;
     private Integer articleId;
     private LocalDateTime updatedDate;
-
 }

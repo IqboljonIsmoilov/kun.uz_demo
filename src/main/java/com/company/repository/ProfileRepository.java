@@ -14,7 +14,7 @@ public interface ProfileRepository extends JpaRepository<ProfileEntity, Integer>
 
     @Transactional
     @Modifying
-    @Query("update ProfileEntity set surname = :surname,name=:name,email=:email,password=:pas  where id = :id")
+    @Query("update ProfileEntity set surname = :surname,name = :name,email = :email,password = :pas  where id = :id")
     Integer update(@Param("surname") String surname,
                    @Param("name") String name,
                    @Param("email") String email,
@@ -25,8 +25,8 @@ public interface ProfileRepository extends JpaRepository<ProfileEntity, Integer>
 
     @Transactional
     @Modifying
-    @Query("update ProfileEntity set image.id = :aId where id = :pid")
-    Optional<ProfileEntity> uploadImage(@Param("pid") Integer pid,
+    @Query("update ProfileEntity set image.id = :aId where id = :pId")
+    Optional<ProfileEntity> uploadImage(@Param("pId") Integer pId,
                                         @Param("aId") String aId);
 
     Optional<ProfileEntity> findByEmailAndPassword(String email, String pswd);

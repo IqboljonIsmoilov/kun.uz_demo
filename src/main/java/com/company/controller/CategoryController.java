@@ -27,7 +27,7 @@ public class CategoryController {
     public ResponseEntity<?> created(@RequestBody @Valid CategoryDTO dto,
                                      HttpServletRequest request) {
         Integer id = JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("created Category: {}", dto);
+        log.info("created Category: {}{}", dto, CategoryController.class);
         return ResponseEntity.ok(categoryService.created(dto, id));
     }
 
@@ -64,7 +64,7 @@ public class CategoryController {
                                     @RequestBody @Valid CategoryDTO dto,
                                     HttpServletRequest request) {
         JwtUtil.getIdFromHeader(request, ProfileRole.ADMIN);
-        log.info("update Category: {}", dto);
+        log.info("update Category: {}{}", dto, CategoryController.class);
         return ResponseEntity.ok(categoryService.update(dto, id));
     }
 

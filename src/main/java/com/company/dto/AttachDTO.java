@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AttachDTO {
+
     private String id;
     private String path;
     private String extension;
@@ -19,7 +20,6 @@ public class AttachDTO {
     private String url;
 
     public AttachDTO() {
-
     }
 
     public AttachDTO(String url) {
