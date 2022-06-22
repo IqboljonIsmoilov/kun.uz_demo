@@ -183,23 +183,23 @@ public class ArticleService {
     }
 
 
-    public String published(Integer id, Integer pId) {
+    public Boolean published(Integer id, Integer pId) {
         ArticleEntity entity = articleRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Not Found!"));
 
         entity.setStatus(ArticleStatus.PUBLISHED);
         articleRepository.save(entity);
-        return "Success";
+        return true;
     }
 
 
-    public String blocked(Integer id, Integer pId) {
+    public Boolean blocked(Integer id, Integer pId) {
         ArticleEntity entity = articleRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Not Found!"));
 
         entity.setStatus(ArticleStatus.BLOCKED);
         articleRepository.save(entity);
-        return "Success";
+        return true;
     }
 
 

@@ -83,9 +83,9 @@ public class ArticleTypeService {
     }
 
 
-    public String delete(Integer id) {
+    public Boolean delete(Integer id) {
         articleTypeRepository.deleteById(id);
-        return "delete";
+        return true;
     }
 
 

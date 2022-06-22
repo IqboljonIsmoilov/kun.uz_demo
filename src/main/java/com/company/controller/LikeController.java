@@ -33,7 +33,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "article Id", notes = "Mathod used for findAllByArticleId")
+    @ApiOperation(value = "article Id", notes = "Mathod used for find All By ArticleId")
     @GetMapping("/article/{id}")
     public ResponseEntity<?> findAllByArticleId(@PathVariable("id") Integer articleId,
                                                 @RequestParam(value = "page", defaultValue = "0") int page,
@@ -42,7 +42,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "profileId", notes = "Mathod used for findAllByProfileId")
+    @ApiOperation(value = "profileId", notes = "Mathod used for find All By ProfileId")
     @GetMapping("/adm/profile/{id}")
     public ResponseEntity<?> findAllByProfileId(@PathVariable("id") Integer profileId,
                                                 @RequestParam(value = "page", defaultValue = "0") int page,
@@ -51,7 +51,7 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "findAll", notes = "Mathod used for findAll")
+    @ApiOperation(value = "find All", notes = "Mathod used for find All")
     @GetMapping("/adm")
     public ResponseEntity<?> findAll(@RequestParam(value = "page", defaultValue = "0") int page,
                                      @RequestParam(value = "size", defaultValue = "3") int size) {
@@ -59,12 +59,12 @@ public class LikeController {
     }
 
 
-    @ApiOperation(value = "findByProfile", notes = "Mathod used for findByProfile")
+    @ApiOperation(value = "find By Profile", notes = "Mathod used for find By Profile")
     @GetMapping("/profile/{id}")
-    public ResponseEntity<?> findByProfile(@PathVariable("id") Integer articleId,
+    public ResponseEntity<?> findByProfile(@PathVariable("id") Integer profile,
                                            HttpServletRequest request) {
         Integer pId = JwtUtil.getIdFromHeader(request);
-        return ResponseEntity.ok(likeService.getByArticleId(articleId, pId));
+        return ResponseEntity.ok(likeService.getByArticleId(profile, pId));
     }
 
 

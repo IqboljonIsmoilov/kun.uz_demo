@@ -68,19 +68,15 @@ public class RegionService {
     }
 
 
-    public String update(RegionDTO dto, Integer id) {
-
+    public Boolean update(RegionDTO dto, Integer id) {
         Integer n = regionRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (n > 0) {
-            return "Update";
-        }
-        return "not update";
+        return true;
     }
 
 
-    public String delete(Integer id) {
+    public Boolean delete(Integer id) {
         regionRepository.deleteById(id);
-        return "delete";
+        return true;
     }
 
 

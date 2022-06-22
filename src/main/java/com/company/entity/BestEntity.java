@@ -19,9 +19,9 @@ public class BestEntity extends BestTimeAndIdEntity {
     @Column(name = "key", unique = true)
     private String key;
 
+
     @Column(name = "profile_id")
     private Integer profileId;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id", insertable = false, updatable = false)
     private ProfileEntity profile;

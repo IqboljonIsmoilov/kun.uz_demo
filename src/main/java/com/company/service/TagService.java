@@ -75,19 +75,16 @@ public class TagService {
     }
 
 
-    public String update(TagDTO dto, Integer id) {
+    public Boolean update(TagDTO dto, Integer id) {
 
         Integer n = tagRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (n > 0) {
-            return "Update";
-        }
-        return "not update";
+        return true;
     }
 
 
-    public String delete(Integer id) {
+    public Boolean delete(Integer id) {
         tagRepository.deleteById(id);
-        return "delete";
+        return true;
     }
 
 

@@ -49,7 +49,8 @@ public class EmailService {
 
 
     public Boolean delete(Integer id) {
-        emailRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Not found!"));
+        emailRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Not found!"));
 
         emailRepository.deleteById(id);
         return true;

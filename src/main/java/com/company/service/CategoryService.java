@@ -72,19 +72,15 @@ public class CategoryService {
     }
 
 
-    public String update(CategoryDTO dto, Integer id) {
-
-        Integer ubd = categoryRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
-        if (ubd > 0) {
-            return "Update";
-        }
-        return "not update";
+    public Boolean update(CategoryDTO dto, Integer id) {
+        Integer n = categoryRepository.update(dto.getNameRu(), dto.getNameUz(), dto.getNameEn(), dto.getKey(), id);
+        return n > 0;
     }
 
 
-    public String delete(Integer id) {
+    public Boolean delete(Integer id) {
         categoryRepository.deleteById(id);
-        return "delete";
+        return true;
     }
 
 

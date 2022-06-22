@@ -59,7 +59,7 @@ public class ProfileController {
 
 
     @ApiOperation(value = "update", notes = "Mathod used for update")
-    @PutMapping("/adm/update/{id}")
+    @PutMapping("/adm/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer id,
                                     @RequestBody @Valid ProfileDTO updateDTO,
                                     HttpServletRequest request) {
@@ -69,8 +69,8 @@ public class ProfileController {
     }
 
 
-    @ApiOperation(value = "uploadImage", notes = "Mathod used for uploadImage")
-    @PutMapping("/public/image/{id}")
+    @ApiOperation(value = "upload Image", notes = "Mathod used for upload Image")
+    @PutMapping("/public/{id}")
     public ResponseEntity<?> uploadImage(@PathVariable("id") String id,
                                          HttpServletRequest request) {
         Integer pid = JwtUtil.getIdFromHeader(request);

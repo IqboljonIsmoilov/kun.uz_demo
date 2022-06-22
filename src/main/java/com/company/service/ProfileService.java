@@ -73,22 +73,19 @@ public class ProfileService {
     }
 
 
-    public String update(ProfileDTO dto, Integer id) {
+    public Boolean update(ProfileDTO dto, Integer id) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
         if (optional.isPresent()) {
             throw new EmailAlreadyExistsException("Email Already Exits");
         }
         Integer n = profileRepository.update(dto.getSurname(), dto.getName(), dto.getEmail(), dto.getPassword(), id);
-        if (n > 0) {
-            return "Update";
-        }
-        return "not update";
+        return n > 0;
     }
 
 
-    public String delete(Integer id) {
+    public Boolean delete(Integer id) {
         profileRepository.deleteById(id);
-        return "delete";
+        return true;
     }
 
 
